@@ -8,7 +8,7 @@ Basically, what we do is have 2 indexes, of last non duplicate and current chara
 If we find duplicate(map size is smaller than difference between current index and last non duplicate index), we remove each element until only unique are left, otherwise, we are certain that is current substring with all unique characters, so we can save it.
 
 # Code
-```
+```cpp
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {

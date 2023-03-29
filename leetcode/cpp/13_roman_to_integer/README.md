@@ -31,7 +31,7 @@ This is done in O(n), where n is length of string, because we do not need to che
 Approach is straight forward, go trough each character, if its smaller then next, subtract, otherwise just add it to whole number.
 
 # Code
-```
+```cpp
 class Solution {
 public:
     int romanToInt(string s) {

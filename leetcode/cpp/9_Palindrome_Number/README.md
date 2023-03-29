@@ -6,7 +6,7 @@ Time complexity is O(n), where n is the number of digits. The complexity can be 
 In the test I put together, it was 6-7 times faster to use integers instead of converting it to string.
 
 # Code
-```
+```cpp
 class Solution {
 public:
     bool isPalindrome(int x) {
