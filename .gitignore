@@ -34,3 +34,6 @@
 
 # Cmake build folder
 build/
+out
+CMakeLists.txt
+.vscode
