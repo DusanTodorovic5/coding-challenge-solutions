@@ -1,12 +1,6 @@
-# Problem
-
-You are given the head of a linked list, and an integer k.
-
-Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node from the end (the list is 1-indexed).
-
 # Approach
-The idea is to go trough linked list and count the elements.
-The complexity can be a bit lower, currently its O(2n), it can be O(n) but then space complexity would be O(n),too. Idea behind second solution is to use stack.
+We find first element and then move second until first marker is null.
+This way we pass trough list only once
 
 # Complexity
 - Time complexity:
@@ -30,30 +24,33 @@ O(1)
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        // return if K is not in bounds or list is empty
+        // return if list is empty or k is less than 1
         if (k < 1 || head == nullptr) {
             return head;
         }
 
-        // we will count the index
-        int index = 1;
-        ListNode* first_swap = NULL;
+        // find the end node marker, we will do it by moving
+        // node to the k-th place, after which we will increase another node
+        ListNode* end_node = head;
         
-        for (ListNode* current = head;current;current = current->next) {
-            if (k == index++) {
-                first_swap = current;
-            }
+        for (int i = 1;i<k;i++) {
+            end_node = end_node->next;
         }
 
-        // now we find element on position n-k and swap them
-        int n = index;
-        index = 1;
-        for (ListNode* current = head;current;current = current->next) {
-            if (n - k == index++) {
-                std::swap(first_swap->val, current->val);
-                break;
-            }
+        // we store the end_node marker to first swap node
+        // move end_node marker to one place after and start
+        // moving the second node until we get to null on end_node marker
+        ListNode* first_swap = end_node;
+        end_node = end_node->next;
+        ListNode* second_swap = head;
+
+        while (end_node) {
+            second_swap = second_swap->next;
+            end_node = end_node->next;
         }
+
+        // swap the values of the nodes and return head
+        std::swap(first_swap->val, second_swap->val);
 
         return head;
     }
