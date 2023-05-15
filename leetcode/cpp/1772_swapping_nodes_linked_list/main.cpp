@@ -24,17 +24,16 @@ public:
 
         // find the end node marker, we will do it by moving
         // node to the k-th place, after which we will increase another node
-        ListNode* end_node = head;
+        ListNode* first_swap = head;
         
         for (int i = 1;i<k;i++) {
-            end_node = end_node->next;
+            first_swap = first_swap->next;
         }
 
         // we store the end_node marker to first swap node
         // move end_node marker to one place after and start
         // moving the second node until we get to null on end_node marker
-        ListNode* first_swap = end_node;
-        end_node = end_node->next;
+        ListNode*  end_node = first_swap->next;
         ListNode* second_swap = head;
 
         while (end_node) {
