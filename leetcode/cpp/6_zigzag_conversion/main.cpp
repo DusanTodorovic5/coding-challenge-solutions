@@ -22,15 +22,17 @@ class Solution
 public:
     std::string convert(std::string s, int numRows)
     {
+        // If its less then 2 rows, we return unchanged string
         if (numRows < 2)
         {
             return s;
         }
 
+        // Allocate string and matrix for railfence
         std::string result(s.length(), '\0');
-
         std::vector<std::vector<char>> matrix(numRows, std::vector<char>(s.length(), '\0'));
 
+        // Fill in the holder with *, this is where we will set characters
         bool direction = true;
         for (int i = 0, row = 0, col = 0; i < s.length(); i++)
         {
@@ -52,6 +54,7 @@ public:
             }
         }
 
+        // Set characters traversing columns first
         for (int j = 0, k = 0; j < s.length(); j++)
         {
             for (int i = 0; i < matrix.size(); i++)
@@ -63,6 +66,7 @@ public:
             }
         }
 
+        // Populate string by pulling characters from matrix rows first
         for (int i = 0, k = 0; i < matrix.size(); i++)
         {
             for (int j = 0; j < s.length(); j++)
