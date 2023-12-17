@@ -37,3 +37,6 @@ build/
 out
 CMakeLists.txt
 .vscode
+obj/
+bin/
+.vs/
