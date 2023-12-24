@@ -10,7 +10,6 @@ public:
 
         int count = 0;
         char comparables[2]{'1', '0'};
-        
         for (int i = 0; i < s.length(); i++) {
           if (s[i] == comparables[i%2]) {
             count++;
